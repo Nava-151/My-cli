@@ -37,7 +37,13 @@ root = HtmlTreeBuilder.BuildTree(listObject);
 string st = "div#copyright .copyR";
 HashSet<HtmlElement> h = new HashSet<HtmlElement>();
 Selector selector=Selector.CreateQuery(st);
-h =root.ElementsFitSelector(root,selector,h); 
+
+Console.WriteLine("-------selector-------");
+h =root.ElementsFitSelector(root,selector,h);
+Console.WriteLine("----------------------");
+
+
+Console.WriteLine();
 Console.WriteLine("--------------------");
 h.ToList().ForEach(h =>Console.WriteLine(h.Name));
 Console.WriteLine("--------------------");

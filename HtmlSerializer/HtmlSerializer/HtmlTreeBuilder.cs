@@ -9,8 +9,6 @@ namespace HtmlSerializer
 {
     internal class HtmlTreeBuilder
     {
-
-
         static string[] singleTag = HtmlHelper.Instance.SingleTag;
         static string[] doubleTag = HtmlHelper.Instance.DoubleTag;
         public static HtmlElement BuildTree(List<string> htmlLines)
@@ -19,30 +17,29 @@ namespace HtmlSerializer
             root.Name = GetFirstWord(htmlLines[1]);
             root.Attributes = GetAttributes(htmlLines[1]);
             root.Id = root.Attributes.GetValueOrDefault("id");
-            root.Classes = root.Attributes.GetValueOrDefault("class")!=null? Regex.Split(root.Attributes.GetValueOrDefault("class"), @"\s+").ToList():null;
+            root.Classes = root.Attributes.GetValueOrDefault("class") != null ? Regex.Split(root.Attributes.GetValueOrDefault("class"), @"\s+").ToList() : new List<string>();
             root.Children = new List<HtmlElement>();
             HtmlElement current = root;
 
             foreach (string line in htmlLines.Skip(2))
             {
-                Console.WriteLine(line);
                 bool isSingle = singleTag.Contains(GetFirstWord(line));
                 bool isdouble = doubleTag.Contains(GetFirstWord(line));
 
-                if (line == "/html")//end
+                if (line == "/html")
                     return root;
-                if (isSingle || isdouble) //open tag
+                if (isSingle || isdouble) 
                 {
                     HtmlElement child = new HtmlElement();
                     child.Name = GetFirstWord(line);
                     child.Attributes = GetAttributes(line);
                     child.Id = child.Attributes.GetValueOrDefault("id");
-                    child.Classes = child.Attributes.GetValueOrDefault("class")!=null? Regex.Split(child.Attributes.GetValueOrDefault("class"), @"\s+").ToList():null;
+                    child.Classes = child.Attributes.GetValueOrDefault("class") != null ? Regex.Split(child.Attributes.GetValueOrDefault("class"), @"\s+").ToList() :new List<string>();
                     child.Children = new List<HtmlElement>();
                     child.Parent = current;
                     current = child;
                 }
-                if (line.StartsWith('/') || isSingle)//end tag
+                if (line.StartsWith('/') || isSingle)
                 {
                     current.Parent.Children.Add(current);
                     current = current.Parent;
@@ -64,11 +61,9 @@ namespace HtmlSerializer
         }
         private static Dictionary<string, string> GetAttributes(string htmlTag)
         {
-            // Regular expression to match attributes
             string pattern = @"(\w+)=[""'](.*?)[""']";
             MatchCollection matches = Regex.Matches(htmlTag, pattern);
 
-            // Dictionary to hold attribute names and values
             Dictionary<string, string> attributes = new Dictionary<string, string>();
 
             foreach (Match match in matches)
@@ -77,18 +72,8 @@ namespace HtmlSerializer
                 string attributeValue = match.Groups[2].Value;
                 attributes[attributeName] = attributeValue;
             }
-
-            // Output the attributes
-            foreach (var attribute in attributes)
-            {
-                Console.WriteLine($"{attribute.Key}: {attribute.Value}");
-            }
             return attributes;
         }
-
-
-
-
     }
 }
 

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\user1\\Pictures\\2th year\\practicode\\מאסתי\\HtmlSerializer\\HtmlSerializer\\HtmlSerializer.csproj": {}
+    "C:\\Users\\user1\\Pictures\\2th year\\practicode\\my-cli\\HtmlSerializer\\HtmlSerializer\\HtmlSerializer.csproj": {}
   },
   "projects": {
-    "C:\\Users\\user1\\Pictures\\2th year\\practicode\\מאסתי\\HtmlSerializer\\HtmlSerializer\\HtmlSerializer.csproj": {
+    "C:\\Users\\user1\\Pictures\\2th year\\practicode\\my-cli\\HtmlSerializer\\HtmlSerializer\\HtmlSerializer.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\user1\\Pictures\\2th year\\practicode\\מאסתי\\HtmlSerializer\\HtmlSerializer\\HtmlSerializer.csproj",
+        "projectUniqueName": "C:\\Users\\user1\\Pictures\\2th year\\practicode\\my-cli\\HtmlSerializer\\HtmlSerializer\\HtmlSerializer.csproj",
         "projectName": "HtmlSerializer",
-        "projectPath": "C:\\Users\\user1\\Pictures\\2th year\\practicode\\מאסתי\\HtmlSerializer\\HtmlSerializer\\HtmlSerializer.csproj",
+        "projectPath": "C:\\Users\\user1\\Pictures\\2th year\\practicode\\my-cli\\HtmlSerializer\\HtmlSerializer\\HtmlSerializer.csproj",
         "packagesPath": "C:\\Users\\user1\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\user1\\Pictures\\2th year\\practicode\\מאסתי\\HtmlSerializer\\HtmlSerializer\\obj\\",
+        "outputPath": "C:\\Users\\user1\\Pictures\\2th year\\practicode\\my-cli\\HtmlSerializer\\HtmlSerializer\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\user1\\AppData\\Roaming\\NuGet\\NuGet.Config",

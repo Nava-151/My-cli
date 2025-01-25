@@ -13,10 +13,6 @@ namespace HtmlSerializer
 
             if (element == null || selector == null)
                 return false;
-            if (selector.Id != null && element.Id != null)
-                Console.WriteLine("id " + selector.Id + "name " + selector.TagName + " element tag name " + element.Name + " element id " + element.Id);
-            else
-                Console.WriteLine("one of them is null");
             if (selector.TagName != string.Empty && selector.TagName != element.Name)
                 return false;
             if (selector.Id != string.Empty && selector.Id != element.Id)
@@ -35,19 +31,13 @@ namespace HtmlSerializer
             IEnumerable<HtmlElement> children = element.Descendants();
             foreach (HtmlElement child in children.Skip(1))
             {
-                if (child.Classes != null)
-                    if (child.Classes.Contains("copyR"))
-                        Console.WriteLine("hh---------------");
-
                 if (EqualElement(child, selector))
                 {
 
                     if (selector.Child == null)
                     {
-                        Console.WriteLine(child.Name + " class ");
                         if (child.Classes != null)
-                            Console.WriteLine(child.Classes[0]);
-                        list.Add(child);
+                            list.Add(child);
                     }
                     ElementsFitSelector(child, selector.Child, list);
                 }
@@ -64,7 +54,6 @@ namespace HtmlSerializer
             while (queue.Count > 0)
             {
                 HtmlElement temp = queue.Dequeue();
-
                 yield return temp;
                 foreach (HtmlElement element in temp.Children)
                     queue.Enqueue(element);
@@ -85,7 +74,7 @@ namespace HtmlSerializer
         public string Name { get; set; }
         public Dictionary<string, string> Attributes { get; set; }
         public List<string> Classes { get; set; }
-        public string InnerHtml { get; set; } = "";
+        public string InnerHtml { get; set; } = string.Empty;
         public HtmlElement Parent { get; set; }
         public List<HtmlElement> Children { get; set; }
 

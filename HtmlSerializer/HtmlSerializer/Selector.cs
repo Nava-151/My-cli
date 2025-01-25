@@ -75,7 +75,6 @@ namespace HtmlSerializer
         public string Id { get; set; }=string.Empty;
         public string TagName { get; set; } = "";
         public List<string> Classes { get; set; } 
-
         
         public Selector Child { get; set; }
         public Selector Parent { get; set; }
